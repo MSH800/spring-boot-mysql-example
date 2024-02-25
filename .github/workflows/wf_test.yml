@@ -1,0 +1,29 @@
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'  # Change this to your desired Java version
+
+      - name: Build JAR
+        run: |
+          mvn package  # Use this command if you're using Maven
+          # or
+          # ./gradlew build  # Use this command if you're using Gradle
+
+      - name: Build Docker image
+        run: |
+          docker build -f ./Dockerfile2 -t myspringapp
