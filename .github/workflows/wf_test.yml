@@ -20,7 +20,7 @@ jobs:
 
       - name: Build JAR
         run: |
-          mvn --cache package  # Use this command if you're using Maven
+          mvn package  # Use this command if you're using Maven
           # or
           # ./gradlew build  # Use this command if you're using Gradle
 
