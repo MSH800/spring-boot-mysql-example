@@ -26,4 +26,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f Dockerfile2 -t myspringapp
+          docker build . -t myspringapp2 -f Dockerfile2
